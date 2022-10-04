@@ -7,12 +7,7 @@ It's a CLI tool that generates `tf` and `tfstate` files based on the existing in
 - [Capabilities](#capabilities)
 - [Installation](#installation)
 - [Providers](/docs)
-        * [AWS](/docs/aws.md)
-- [Contributing](#contributing)
-- [Developing](#developing)
-- [Infrastructure](#infrastructure)
-- [Stargazers over time](#stargazers-over-time)
-
+       * [AWS](/docs/aws.md)
 
 ## Capabilities
 
