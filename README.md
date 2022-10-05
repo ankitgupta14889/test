@@ -113,6 +113,7 @@ sudo mv terraformer-${PROVIDER}-darwin-amd64 /usr/local/bin/terraformer
 4. Create a folder and initialize the terraform provider and run terraformer commands from there
    * For AWS -  refer https://learn.hashicorp.com/tutorials/terraform/aws-build?in=terraform/aws-get-started
 
+### Provider
 
 Below is the link to download Terraform Providers:
 
