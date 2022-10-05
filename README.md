@@ -118,7 +118,6 @@ Initialize the Terraform configuration via the init command.
 ```
 ~$ terraform init
 Initializing the backend...
-~~~
 Terraform has been successfully initialized!
 ```
 
@@ -130,9 +129,7 @@ Now we can import the resources.
 ~$ terraformer import aws --path-pattern="{output}/" --compact=true --regions=ap-southeast-2 --resources=ecs,rds
 aws importing region ap-southeast-2
 aws importing... ecs
-~~~
 aws importing... rds
-~~~
 aws Connecting....
 aws save
 aws save tfstate
@@ -160,12 +157,9 @@ Refreshing Terraform state in-memory prior to plan...
 Its time to apply the configuration.
 
 ```
-~/Koalaimport$ terraform apply
-                ~~~
+~/Koalaimport$ terraform apply              
 Terraform will perform the following actions:
-
-Plan: 0 to add, 0 to change, 0 to destroy.
-                ~~~
+Plan: 0 to add, 0 to change, 0 to destroy.            
 Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
 ```
 
