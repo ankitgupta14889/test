@@ -108,7 +108,7 @@ sudo mv terraformer-${PROVIDER}-darwin-amd64 /usr/local/bin/terraformer
 ```
 * Windows
 1. Install Terraform - https://www.terraform.io/downloads
-2. Download exe file from here - https://github.com/GoogleCloudPlatform/terraformer/releases [terraformer-aws-windows-amd64.exe]
+2. Download exe file from here - https://github.com/GoogleCloudPlatform/terraformer/releases/download/0.8.22/terraformer-aws-windows-amd64.exe
 3. Add the exe file path to path variable
 4. Create a folder and initialize the terraform provider and run terraformer commands from there
    * For AWS -  refer https://learn.hashicorp.com/tutorials/terraform/aws-build?in=terraform/aws-get-started
