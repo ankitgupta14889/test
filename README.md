@@ -19,46 +19,17 @@ It's a CLI tool that generates `tf` and `tfstate` files based on the existing in
 4. Import by resource name and type.
 5. Support terraform 0.13 (for terraform 0.11 use v0.7.9).
 
-Terraformer uses Terraform providers and is designed to easily support newly added resources.
-```
-Import current state to Terraform configuration from a provider
+Terraformer uses Terraform providers and it is designed to easily support newly added resources.
 
-Usage:
-   import [provider] [flags]
-   import [provider] [command]
-
-Available Commands:
-  list        List supported resources for a provider
-
-Flags:
-  -b, --bucket string         gs://terraform-state
-  -c, --connect                (default true)
-  -С, --compact                (default false)
-  -x, --excludes strings      firewalls,networks
-  -f, --filter strings        compute_firewall=id1:id2:id4
-  -h, --help                  help for google
-  -O, --output string         output format hcl or json (default "hcl")
-  -o, --path-output string     (default "generated")
-  -p, --path-pattern string   {output}/{provider}/ (default "{output}/{provider}/{service}/")
-      --projects strings
-  -z, --regions strings       europe-west1, (default [global])
-  -r, --resources strings     firewall,networks or * for all services
-  -s, --state string          local or bucket (default "local")
-  -v, --verbose               verbose mode
-  -n, --retry-number          number of retries to perform if refresh fails
-  -m, --retry-sleep-ms        time in ms to sleep between retries
-
-Use " import [provider] [command] --help" for more information about a command.
-```
 #### Permissions
 
 The tool requires read-only permissions to list service resources.
 
 #### Resources
 
-We can use `--resources` parameter to tell resources from what service you want to import.
+We can use `--resources` parameter to tell the resources from what service you want to import.
 
-To import resources from all services, use `--resources="*"` . If we want to exclude certain services, We can combine the parameter with `--excludes` to exclude resources from services we don't want to import e.g. `--resources="*" --excludes="iam"`.
+To import resources from all services, we can use `--resources="*"` . If we want to exclude certain services, We can combine the parameter with `--excludes` to exclude resources from services we don't want to import e.g. `--resources="*" --excludes="iam"`.
 
 #### Filtering
 
@@ -68,8 +39,6 @@ Use `Type` when we need to filter only one of several types of resources. Multip
 ```
 terraformer import aws -r sg,vpc --filter Type=sg;Name=vpc_id;Value=VPC_ID --filter Type=vpc;Name=id;Value=VPC_ID
 ```
-We can notice how the `Name` is different for `sg` than it is for `vpc`.
-
 
 ##### Resource ID
 
@@ -79,15 +48,14 @@ Filtering is based on Terraform resource ID patterns. To find valid ID patterns 
 
 #### Planning
 
-The `plan` command generates a planfile that contains all the resources set to be imported. By modifying the planfile before running the `import` command, we can rename or filter the resources we'd like to import.
+The `plan` command generates a planfile that contains all the resources set to be imported.
 
 The rest of the subcommands and parameters are identical to the `import` command.
 
 
 ### Installation
-We will follow the installation instruction from the release.
+Based on the OS, We can follow the installation instruction.
 
-From Releases:
 
 * Linux
 
@@ -156,7 +124,7 @@ Terraform has been successfully initialized!
 
 ##### Importing
 
-Now we will import the resources.
+Now we can import the resources.
 
 ```
 ~$ terraformer import aws --path-pattern="{output}/" --compact=true --regions=ap-southeast-2 --resources=ecs,rds
