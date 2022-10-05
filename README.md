@@ -6,18 +6,17 @@ It's a CLI tool that generates `tf` and `tfstate` files based on the existing in
 # Table of Contents
 - [Capabilities](#capabilities)
 - [Installation](#installation)
-- [Providers](/Docs)
+- [Provider](/Docs)
        * [AWS](/Docs/aws.md)
 
 ## Capabilities
 
-1.  Generate `tf` and `tfstate` files from existing infrastructure for all the
+1. Generate `tf` and `tfstate` files from existing infrastructure for all the
     resources.
-2.  Remote state will be uploaded to S3 bucket.
-3.  Connect between resources with `terraform_remote_state` (local and bucket).
-4.  Save `tf` files using a custom folder tree pattern.
-5.  Import by resource name and type.
-6.  Support terraform 0.13 (for terraform 0.11 use v0.7.9).
+2. Remote state will be uploaded to S3 bucket.
+3. Save `tf` files using a custom folder tree pattern.
+4. Import by resource name and type.
+5. Support terraform 0.13 (for terraform 0.11 use v0.7.9).
 
 Terraformer uses Terraform providers and is designed to easily support newly added resources.
 To upgrade resources with new fields, all we need to do is upgrade the relevant Terraform providers.
