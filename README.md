@@ -6,7 +6,7 @@ It's a CLI tool that generates `tf` and `tfstate` files based on the existing in
 # Table of Contents
 - [Capabilities](#capabilities)
 - [Installation](#installation)
-- [Providers](/docs)
+- [Providers](/Docs)
        * [AWS](/Docs/aws.md)
 
 ## Capabilities
@@ -57,9 +57,9 @@ The tool requires read-only permissions to list service resources.
 
 #### Resources
 
-You can use `--resources` parameter to tell resources from what service you want to import.
+We can use `--resources` parameter to tell resources from what service you want to import.
 
-To import resources from all services, use `--resources="*"` . If you want to exclude certain services, you can combine the parameter with `--excludes` to exclude resources from services you don't want to import e.g. `--resources="*" --excludes="iam"`.
+To import resources from all services, use `--resources="*"` . If we want to exclude certain services, We can combine the parameter with `--excludes` to exclude resources from services we don't want to import e.g. `--resources="*" --excludes="iam"`.
 
 #### Filtering
 
@@ -74,15 +74,15 @@ We can notice how the `Name` is different for `sg` than it is for `vpc`.
 
 ##### Resource ID
 
-Filtering is based on Terraform resource ID patterns. To find valid ID patterns for your resource, check the import part of the [Terraform documentation][terraform-providers].
+Filtering is based on Terraform resource ID patterns. To find valid ID patterns for the resource, check the import part of the [Terraform documentation][terraform-providers].
 
 [terraform-providers]: https://www.terraform.io/docs/providers/
 
 #### Planning
 
-The `plan` command generates a planfile that contains all the resources set to be imported. By modifying the planfile before running the `import` command, you can rename or filter the resources you'd like to import.
+The `plan` command generates a planfile that contains all the resources set to be imported. By modifying the planfile before running the `import` command, we can rename or filter the resources we'd like to import.
 
-The rest of subcommands and parameters are identical to the `import` command.
+The rest of the subcommands and parameters are identical to the `import` command.
 
 
 ### Installation
@@ -108,7 +108,7 @@ sudo mv terraformer-${PROVIDER}-darwin-amd64 /usr/local/bin/terraformer
 ```
 * Windows
 1. Install Terraform - https://www.terraform.io/downloads
-2. Download exe file for required provider from here - https://github.com/GoogleCloudPlatform/terraformer/releases
+2. Download exe file from here - https://github.com/GoogleCloudPlatform/terraformer/releases [terraformer-aws-windows-amd64.exe]
 3. Add the exe file path to path variable
 4. Create a folder and initialize the terraform provider and run terraformer commands from there
    * For AWS -  refer https://learn.hashicorp.com/tutorials/terraform/aws-build?in=terraform/aws-get-started
