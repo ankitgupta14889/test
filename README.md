@@ -141,23 +141,3 @@ In the above example, We use the following keys.
 4. --regions - The provider's region.
 5. --resources - Types of resources to import.
 
-
-Now we can do some planning with the imported configuration.
-
-```
-~/Koalaimport$ terraform plan
-Refreshing Terraform state in-memory prior to plan...
-0 to add, 0 to change, 0 to destroy
-```
-
-##### Applying the configuration
-
-Its time to apply the configuration.
-
-```
-~/Koalaimport$ terraform apply              
-Terraform will perform the following actions:
-Plan: 0 to add, 0 to change, 0 to destroy.            
-Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
-```
-
