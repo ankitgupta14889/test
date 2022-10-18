@@ -123,13 +123,11 @@ Terraform has been successfully initialized!
 
 ##### Importing
 
-Now we can import the resources.
+Now we can import the resources with the help of import-state.sh script.
 
 ```
-~$ terraformer import aws --path-pattern="{output}/" --compact=true --regions=ap-southeast-2 --resources=ecs,rds
-aws importing region ap-southeast-2
-aws importing... ecs
-aws importing... rds
+~$ terraformer import aws --resources="*" -o "./${env}" -p {output}/{service}/ --regions ap-southeast-2,ap-northeast-1 --profile "koala-web-${env}"
+aws importing... 
 aws Connecting....
 aws save
 aws save tfstate
