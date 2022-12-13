@@ -141,3 +141,47 @@ In the above example, We use the following keys.
 4. --regions - The provider's region.
 5. --resources - Types of resources to import.
 
+
+Use Case:
+
+```
+terraformer import aws --resources="*" --regions ap-southeast-2
+```
+
+This will create a folder called "generated" inside the current directory. 
+Inside this folder every AWS service will also have a folder with the terraformer generated terraform code. 
+Note that a folder will be created even if there is nothing in the infrastructure for it. 
+
+Terraformer can only generate hard coded values/outputs and cannot adequately keep track of dependencies. 
+
+For example: 
+The subnet code uses some outputs of the vpc code. If the subnet code is run before the VPC code then there will be an error
+about missing data source i.e the VPC output. 
+
+This is because the code has been reverse engineered, if written from forward direction then Terraform is able to work out these dependencies. 
+
+As such, the Terraformer code needs to be inspected for data sources of other modules and those dependency modules need to be executed first. 
+
+I.e
+
+```
+resource "aws_subnet" "tfer--subnet-0313141be9683a400" {
+  assign_ipv6_address_on_creation                = "false"
+  cidr_block                                     = "10.0.2.0/24"
+  enable_dns64                                   = "false"
+  enable_resource_name_dns_a_record_on_launch    = "false"
+  enable_resource_name_dns_aaaa_record_on_launch = "false"
+  private_dns_hostname_type_on_launch            = "ip-name"
+
+  tags = {
+    Name = "subnet-k-2"
+  }
+
+  tags_all = {
+    Name = "subnet-k-2"
+  }
+
+  vpc_id = "${data.terraform_remote_state.vpc.outputs.aws_vpc_tfer--vpc-00ea3e8ff5705a9e3_id}"
+}
+```
+
